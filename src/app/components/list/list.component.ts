@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-
+import { Router } from '@angular/router';
+import { ServiceService } from '../../services/service.service';
 
 @Component({
   selector: 'app-list',
@@ -10,13 +11,21 @@ import { NgForm } from '@angular/forms';
 
 export class ListComponent implements OnInit {
 myList:any[] = [];
-  constructor() { }
-
+minDate = new Date(1950, 0, 1);
+maxDate = new Date(2000, 0, 1);
+constructor(private route:Router, private mySvc:ServiceService) { }
   ngOnInit() {
   }
 
   processForm(theForm:NgForm) {
     console.log(theForm.value);
-    this.myList.push(theForm.value)
+    this.myList.push(theForm.value);
+    
+    this.mySvc.addUser(theForm.value)
+     .subscribe((result:any)=>{
+       console.log(result);
+     });
+    this.route.navigate(['/Display']);
   }
+
 }
