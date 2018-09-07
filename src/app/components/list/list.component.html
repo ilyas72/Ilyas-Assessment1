@@ -1,0 +1,73 @@
+<form #IlyasAssessment="ngForm" (ngSubmit)=processForm(IlyasAssessment)>
+  <mat-card>
+      <div fxLayout="column" fxLayoutGap="15px">
+       
+        <mat-form-field>
+          <input matInput name="name" placeholder="Name" ngModel required>
+                <mat-error>
+                  Please enter your name
+                </mat-error>
+        </mat-form-field>
+        
+        <mat-form-field>
+          <input matInput name="email" placeholder="Email" required email ngModel>
+              <mat-error>
+                  Please enter valid email address (eg.john@gmail.com)
+              </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput name="password" placeholder="Password" ngModel required>
+              <mat-error>
+                  Please enter your password
+              </mat-error>
+        </mat-form-field>
+        
+        <!-- <span>Gender</span>
+        <mat-radio-group name="Priority" ngModel fxLayout="row" fxlayoutAlign="end" fxLayoutGap="2vw" required>
+            <mat-radio-button class="radio" value="">Male</mat-radio-button>
+            <mat-radio-button class="radio" value="">Female</mat-radio-button>
+        </mat-radio-group> -->
+
+        <mat-form-field>
+          <input matInput name="dob" placeholder="Date of Birth" ngModel required>
+                <mat-error>
+                    Please enter your date of birth
+                </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput name="address" placeholder="Address" ngModel required>
+              <mat-error>
+                  Please enter your home address
+              </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput name="country" placeholder="Country" ngModel required>
+            <mat-error>
+                Please enter your country
+            </mat-error>
+        </mat-form-field>
+       
+        <mat-form-field>
+         <input matInput name="contact" placeholder="Contact Number" required minlength="8" ngModel >
+            <mat-error>
+                Please enter your 8 digit phone number (eg.91234567)
+            </mat-error>
+        </mat-form-field>
+      </div>
+    
+      <div fxLayoutAlign="end" fxLayoutGap="10px">
+          <button mat-raised-button color="accent" type="reset">
+              <mat-icon>clear</mat-icon>
+              <span>Clear</span>
+          </button>
+
+          <button mat-raised-button color="accent" type="submit" [disabled]="IlyasAssessment.invalid">
+              <mat-icon>add_box</mat-icon>
+              <span>Add</span>
+          </button>
+      </div> 
+  </mat-card>
+</form>
