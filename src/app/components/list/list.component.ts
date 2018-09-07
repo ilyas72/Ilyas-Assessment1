@@ -7,14 +7,16 @@ import { NgForm } from '@angular/forms';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-export class ListComponent implements OnInit {
 
+export class ListComponent implements OnInit {
+myList:any[] = [];
   constructor() { }
 
   ngOnInit() {
   }
 
-  processForm(IlyasAssessment:NgForm) {
-    console.log(IlyasAssessment.value);}
-
+  processForm(theForm:NgForm) {
+    console.log(theForm.value);
+    this.myList.push(theForm.value)
+  }
 }

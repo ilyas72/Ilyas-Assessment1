@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListComponent } from './components/list/list.component';
 import { MaterialModule } from './material.module';
 import { FormsModule } from '@angular/forms';
-
+import { MatMomentDateModule } from '@angular/material-moment-adapter'
 
 
 @NgModule({
@@ -18,7 +18,11 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    MatMomentDateModule,
+    
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

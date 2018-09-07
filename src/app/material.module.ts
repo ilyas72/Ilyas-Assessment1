@@ -9,16 +9,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatRadioModule} from '@angular/material/radio';
-
-
-
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 const MODULES = [
     FlexLayoutModule,
     MatToolbarModule, MatInputModule, MatFormFieldModule, 
     MatButtonModule, MatCardModule,
-    MatIconModule, MatSliderModule, MatRadioModule
+    MatIconModule, MatSliderModule, MatRadioModule, MatDatepickerModule
 ];
 
 @NgModule({

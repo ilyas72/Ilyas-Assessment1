@@ -5,55 +5,55 @@
         <mat-form-field>
           <input matInput name="name" placeholder="Name" ngModel required>
                 <mat-error>
-                  Please enter your name
+                    Please enter your name
                 </mat-error>
         </mat-form-field>
         
         <mat-form-field>
           <input matInput name="email" placeholder="Email" required email ngModel>
               <mat-error>
-                  Please enter valid email address (eg.john@gmail.com)
+                    Please enter valid email address (eg.john@gmail.com)
               </mat-error>
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput name="password" placeholder="Password" ngModel required>
-              <mat-error>
-                  Please enter your password
-              </mat-error>
+          <input matInput name="password" placeholder="Password" minlength=8 required ngModel
+          pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
+            <mat-error>
+                Password must contain at least 8 characters, including UPPER/lowercase, numbers and one of these special characters @,#,$.
+            </mat-error>
         </mat-form-field>
         
-        <!-- <span>Gender</span>
-        <mat-radio-group name="Priority" ngModel fxLayout="row" fxlayoutAlign="end" fxLayoutGap="2vw" required>
-            <mat-radio-button class="radio" value="">Male</mat-radio-button>
-            <mat-radio-button class="radio" value="">Female</mat-radio-button>
-        </mat-radio-group> -->
+        <span>Gender:</span>
+        <mat-radio-group fxLayout="row" fxlayoutAlign="end" fxLayoutGap="2vw" required>
+            <mat-radio-button value="1">Male</mat-radio-button>
+            <mat-radio-button value="2">Female</mat-radio-button>
+        </mat-radio-group>
 
         <mat-form-field>
-          <input matInput name="dob" placeholder="Date of Birth" ngModel required>
-                <mat-error>
-                    Please enter your date of birth
-                </mat-error>
+            <input matInput [matDatepicker]="picker" placeholder="Date of Birth" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
 
         <mat-form-field>
           <input matInput name="address" placeholder="Address" ngModel required>
               <mat-error>
-                  Please enter your home address
+                    Please enter your home address
               </mat-error>
         </mat-form-field>
 
         <mat-form-field>
           <input matInput name="country" placeholder="Country" ngModel required>
             <mat-error>
-                Please enter your country
+                    Please enter your country
             </mat-error>
         </mat-form-field>
        
         <mat-form-field>
-         <input matInput name="contact" placeholder="Contact Number" required minlength="8" ngModel >
+         <input matInput name="contact" placeholder="Contact Number" required minlength="8" ngModel pattern="\d\d\d\d\d\d\d\d" >
             <mat-error>
-                Please enter your 8 digit phone number (eg.91234567)
+                    Please enter your 8 digit phone number (eg.91234567)
             </mat-error>
         </mat-form-field>
       </div>
@@ -66,7 +66,7 @@
 
           <button mat-raised-button color="accent" type="submit" [disabled]="IlyasAssessment.invalid">
               <mat-icon>add_box</mat-icon>
-              <span>Add</span>
+              <span>Submit</span>
           </button>
       </div> 
   </mat-card>
